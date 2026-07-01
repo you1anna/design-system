@@ -20,6 +20,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "eslint .",
+    "format": "prettier --write .",
     "typecheck": "tsc --noEmit",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build"
@@ -29,8 +30,15 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/react": "^18.3.31",
     "@types/react-dom": "^18.3.7",
-    "typescript": "^6.0.3"
+    "eslint": "^9.39.4",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "prettier": "^3.9.4",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.62.1"
   }
 }
