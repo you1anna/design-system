@@ -1,0 +1,86 @@
+/**
+ * Design tokens as CSS custom properties.
+ * Values must be kept in sync with src/tokens/primitives.ts and semantic.ts by hand —
+ * there is no build-time generator for v1. tokens.test.ts guards internal consistency
+ * of the TS side; nothing currently checks this file against it.
+ */
+:root {
+  /* primitive */
+  --ds-white: #ffffff;
+  --ds-black: #000000;
+  --ds-gray-50: #fafafa;
+  --ds-gray-100: #f4f4f5;
+  --ds-gray-200: #e4e4e7;
+  --ds-gray-300: #d4d4d8;
+  --ds-gray-400: #a1a1aa;
+  --ds-gray-500: #71717a;
+  --ds-gray-600: #52525b;
+  --ds-gray-700: #3f3f46;
+  --ds-gray-800: #27272a;
+  --ds-gray-900: #18181b;
+  --ds-blue-50: #eff6ff;
+  --ds-blue-300: #93c5fd;
+  --ds-blue-500: #3b82f6;
+  --ds-blue-600: #2563eb;
+  --ds-blue-700: #1d4ed8;
+  --ds-red-50: #fef2f2;
+  --ds-red-300: #fca5a5;
+  --ds-red-500: #ef4444;
+  --ds-red-700: #b91c1c;
+  --ds-green-50: #f0fdf4;
+  --ds-green-300: #86efac;
+  --ds-green-500: #22c55e;
+  --ds-green-700: #15803d;
+  --ds-amber-50: #fffbeb;
+  --ds-amber-300: #fcd34d;
+  --ds-amber-500: #f59e0b;
+  --ds-amber-700: #b45309;
+
+  /* semantic: color */
+  --ds-color-bg-page: var(--ds-white);
+  --ds-color-bg-surface: var(--ds-gray-50);
+  --ds-color-bg-surface-hover: var(--ds-gray-100);
+  --ds-color-border-default: var(--ds-gray-300);
+  --ds-color-border-strong: var(--ds-gray-500);
+  --ds-color-text-primary: var(--ds-gray-900);
+  --ds-color-text-secondary: var(--ds-gray-600);
+  --ds-color-text-inverse: var(--ds-white);
+  --ds-color-action-primary: var(--ds-blue-600);
+  --ds-color-action-primary-hover: var(--ds-blue-700);
+  --ds-color-action-primary-text: var(--ds-white);
+  --ds-color-danger: var(--ds-red-500);
+  --ds-color-danger-bg: var(--ds-red-50);
+  --ds-color-success: var(--ds-green-500);
+  --ds-color-success-bg: var(--ds-green-50);
+  --ds-color-warning: var(--ds-amber-500);
+  --ds-color-warning-bg: var(--ds-amber-50);
+
+  /* semantic: space */
+  --ds-space-xs: 4px;
+  --ds-space-sm: 8px;
+  --ds-space-md: 16px;
+  --ds-space-lg: 24px;
+  --ds-space-xl: 32px;
+  --ds-space-2xl: 48px;
+
+  /* semantic: radius */
+  --ds-radius-sm: 4px;
+  --ds-radius-md: 8px;
+  --ds-radius-lg: 12px;
+  --ds-radius-full: 9999px;
+
+  /* semantic: typography */
+  --ds-font-family-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --ds-font-family-mono: 'SFMono-Regular', ui-monospace, Menlo, monospace;
+  --ds-font-size-xs: 12px;
+  --ds-font-size-sm: 14px;
+  --ds-font-size-md: 16px;
+  --ds-font-size-lg: 18px;
+  --ds-font-size-xl: 24px;
+  --ds-font-size-2xl: 32px;
+  --ds-font-weight-regular: 400;
+  --ds-font-weight-medium: 500;
+  --ds-font-weight-bold: 700;
+  --ds-line-height-tight: 1.2;
+  --ds-line-height-normal: 1.5;
+}
