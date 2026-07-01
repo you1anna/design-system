@@ -11,12 +11,15 @@ export default defineConfig({
     projects: [{
       extends: true,
       test: {
+        name: 'unit',
         environment: 'jsdom',
         globals: true,
         setupFiles: ['./vitest.setup.ts'],
         css: true
       }
     }, {
+      // Storybook browser tests require Chromium to be installed first:
+      // npx playwright install chromium
       extends: true,
       plugins: [
       // The plugin will run tests for the stories defined in your Storybook config
