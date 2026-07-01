@@ -1,0 +1,21 @@
+.grid {
+  display: grid;
+}
+.gapXs {
+  gap: var(--ds-space-xs);
+}
+.gapSm {
+  gap: var(--ds-space-sm);
+}
+.gapMd {
+  gap: var(--ds-space-md);
+}
+.gapLg {
+  gap: var(--ds-space-lg);
+}
+.gapXl {
+  gap: var(--ds-space-xl);
+}
+.gap2xl {
+  gap: var(--ds-space-2xl);
+}
