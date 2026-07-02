@@ -1,0 +1,40 @@
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-sm);
+  font-family: var(--ds-font-family-sans);
+}
+.row {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-sm);
+}
+.item {
+  all: unset;
+  width: 18px;
+  height: 18px;
+  border-radius: var(--ds-radius-full);
+  border: 1px solid var(--ds-color-border-default);
+  background-color: var(--ds-color-bg-page);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.item[data-state='checked'] {
+  border-color: var(--ds-color-action-primary);
+}
+.item:focus-visible {
+  outline: 2px solid var(--ds-color-action-primary);
+  outline-offset: 2px;
+}
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--ds-radius-full);
+  background-color: var(--ds-color-action-primary);
+}
+.label {
+  font-size: var(--ds-font-size-sm);
+  color: var(--ds-color-text-primary);
+}
