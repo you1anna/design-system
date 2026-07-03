@@ -1,0 +1,27 @@
+.root {
+  font-family: var(--ds-font-family-sans);
+}
+.list {
+  display: flex;
+  gap: var(--ds-space-md);
+  border-bottom: 1px solid var(--ds-color-border-default);
+}
+.trigger {
+  all: unset;
+  padding: var(--ds-space-sm) var(--ds-space-xs);
+  font-size: var(--ds-font-size-md);
+  color: var(--ds-color-text-secondary);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+.trigger[data-state='active'] {
+  color: var(--ds-color-text-primary);
+  border-bottom-color: var(--ds-color-action-primary);
+}
+.trigger:focus-visible {
+  outline: 2px solid var(--ds-color-action-primary);
+  outline-offset: 2px;
+}
+.content {
+  padding: var(--ds-space-md) 0;
+}
