@@ -1,0 +1,40 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(420px, 90vw);
+  background-color: var(--ds-color-bg-page);
+  border-radius: var(--ds-radius-lg);
+  padding: var(--ds-space-lg);
+  font-family: var(--ds-font-family-sans);
+}
+.title {
+  margin: 0 0 var(--ds-space-xs) 0;
+  font-size: var(--ds-font-size-lg);
+  font-weight: var(--ds-font-weight-bold);
+  color: var(--ds-color-text-primary);
+}
+.description {
+  margin: 0 0 var(--ds-space-md) 0;
+  font-size: var(--ds-font-size-sm);
+  color: var(--ds-color-text-secondary);
+}
+.body {
+  margin-bottom: var(--ds-space-md);
+}
+.close {
+  position: absolute;
+  top: var(--ds-space-md);
+  right: var(--ds-space-md);
+  background: none;
+  border: none;
+  font-size: var(--ds-font-size-lg);
+  cursor: pointer;
+  color: var(--ds-color-text-secondary);
+}
