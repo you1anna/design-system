@@ -101,20 +101,20 @@ Adding a component later means adding one new folder following this shape and ex
 Core set, chosen to cover enough surface for the design agent to build real screens without
 over-building up front:
 
-| Component | Notes |
-|---|---|
-| Button | primary/secondary/ghost variants, sizes |
-| Input | text input, label + error state |
-| Select | Radix Select primitive |
-| Checkbox | Radix Checkbox primitive |
-| Radio (group) | Radix RadioGroup primitive |
-| Card | container, header/body/footer slots |
-| Badge | status/label chip |
-| Dialog | Radix Dialog primitive (modal) |
-| Tabs | Radix Tabs primitive |
-| Alert | inline status/toast-style message |
-| Stack | layout primitive (flex, gap from spacing tokens) |
-| Grid | layout primitive (CSS grid, gap from spacing tokens) |
+| Component     | Notes                                                |
+| ------------- | ---------------------------------------------------- |
+| Button        | primary/secondary/ghost variants, sizes              |
+| Input         | text input, label + error state                      |
+| Select        | Radix Select primitive                               |
+| Checkbox      | Radix Checkbox primitive                             |
+| Radio (group) | Radix RadioGroup primitive                           |
+| Card          | container, header/body/footer slots                  |
+| Badge         | status/label chip                                    |
+| Dialog        | Radix Dialog primitive (modal)                       |
+| Tabs          | Radix Tabs primitive                                 |
+| Alert         | inline status/toast-style message                    |
+| Stack         | layout primitive (flex, gap from spacing tokens)     |
+| Grid          | layout primitive (CSS grid, gap from spacing tokens) |
 
 ## Tooling & scripts
 
