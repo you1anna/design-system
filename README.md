@@ -66,8 +66,8 @@ Remaining before Phase 1 is fully closed:
    [`docs/figma-library-scope.md`](docs/figma-library-scope.md) from the code tokens; run
    the `figma-generate-library` workflow to produce the actual Figma file, then record its
    URL here. (Held as a Robin checkpoint — it's an outward-facing action.)
-2. **Deploy the live Storybook demo.** The GitHub Pages workflow exists; enable Pages and
-   record the URL under [Storybook demo](#storybook-demo).
+2. ✅ **Live Storybook demo deployed.** Pages is enabled and the workflow publishes from
+   `main` — see [Storybook demo](#storybook-demo).
 
 Next up is **Phase 2**: the thin local-first Producer Release OS SPA consuming these rails.
 
@@ -75,12 +75,25 @@ Design docs live in `docs/superpowers/specs/` and `docs/superpowers/plans/`.
 
 ## Storybook demo
 
-Build the demo locally:
+**Live:** https://you1anna.github.io/design-system/ — the deployed Storybook, phone-friendly.
+
+Build the demo locally instead:
 
 ```bash
-npm run storybook:build
+npm run storybook:build   # static output in storybook-static/
 ```
 
-The static output is `storybook-static/`.
+### How the deploy works
 
-When this repo has a GitHub remote and Pages is configured to use GitHub Actions, `.github/workflows/storybook-pages.yml` publishes Storybook from `main`. The workflow runs unit tests, builds the package, builds Storybook, and deploys the generated static site.
+`.github/workflows/storybook-pages.yml` publishes Storybook on every push to `main`:
+run unit tests → build the package → build Storybook → upload `storybook-static/` →
+deploy to GitHub Pages. `configure-pages` runs with `enablement: true`, so the first run
+provisions the Pages site itself (this repo previously failed here because Pages had never
+been turned on). A `storybook-pages` concurrency group cancels superseded runs.
+
+> ⚠️ **Visibility:** this repository is private, but the deployed Pages site is **public** —
+> anyone with the URL above can view the component library. GitHub Pages cannot be kept
+> private except on Enterprise. Do not put anything confidential in stories. Private-repo
+> Pages also requires a paid GitHub plan; if the plan doesn't support it the deploy step
+> will fail rather than expose anything. To take the demo down, disable Pages in
+> **Settings → Pages** (source: None).
