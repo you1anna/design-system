@@ -66,8 +66,9 @@ Remaining before Phase 1 is fully closed:
    [`docs/figma-library-scope.md`](docs/figma-library-scope.md) from the code tokens; run
    the `figma-generate-library` workflow to produce the actual Figma file, then record its
    URL here. (Held as a Robin checkpoint — it's an outward-facing action.)
-2. ✅ **Live Storybook demo deployed.** Pages is enabled and the workflow publishes from
-   `main` — see [Storybook demo](#storybook-demo).
+2. **Deploy the live Storybook demo.** The workflow is fixed and green through the
+   Storybook build; the only remaining step is a one-time **manual** enable of Pages
+   (Actions token can't self-provision). See [Storybook demo](#storybook-demo).
 
 Next up is **Phase 2**: the thin local-first Producer Release OS SPA consuming these rails.
 
@@ -75,7 +76,7 @@ Design docs live in `docs/superpowers/specs/` and `docs/superpowers/plans/`.
 
 ## Storybook demo
 
-**Live:** https://you1anna.github.io/design-system/ — the deployed Storybook, phone-friendly.
+**Live (once Pages is enabled):** https://you1anna.github.io/design-system/
 
 Build the demo locally instead:
 
@@ -83,17 +84,28 @@ Build the demo locally instead:
 npm run storybook:build   # static output in storybook-static/
 ```
 
-### How the deploy works
+### One-time setup required before the demo goes live
 
 `.github/workflows/storybook-pages.yml` publishes Storybook on every push to `main`:
 run unit tests → build the package → build Storybook → upload `storybook-static/` →
-deploy to GitHub Pages. `configure-pages` runs with `enablement: true`, so the first run
-provisions the Pages site itself (this repo previously failed here because Pages had never
-been turned on). A `storybook-pages` concurrency group cancels superseded runs.
+deploy to GitHub Pages. A `storybook-pages` concurrency group cancels superseded runs.
 
-> ⚠️ **Visibility:** this repository is private, but the deployed Pages site is **public** —
-> anyone with the URL above can view the component library. GitHub Pages cannot be kept
-> private except on Enterprise. Do not put anything confidential in stories. Private-repo
-> Pages also requires a paid GitHub plan; if the plan doesn't support it the deploy step
-> will fail rather than expose anything. To take the demo down, disable Pages in
-> **Settings → Pages** (source: None).
+The workflow is correct, but it **cannot turn Pages on by itself**. The Actions
+`GITHUB_TOKEN` is not allowed to create a Pages site (`configure-pages` fails with
+`Resource not accessible by integration`). Pages must be enabled once, by hand:
+
+1. **Settings → Pages → Build and deployment → Source: _GitHub Actions_.**
+2. Re-run the latest **Storybook Pages** workflow (or push any commit to `main`).
+
+After that the deploy is fully automatic. `configure-pages` runs with `enablement: true`,
+which is a harmless no-op once the site exists.
+
+> ⚠️ **Risks — read before enabling:**
+> - **Public exposure.** The repo is private, but a Pages site is **public** — anyone with
+>   the URL can view every component and story. Pages can't be private except on Enterprise.
+>   Keep secrets/confidential copy out of stories. To take it down later: **Settings → Pages
+>   → Source: None**.
+> - **Plan requirement.** Pages on a private repo needs a paid GitHub plan. On Free, the
+>   *GitHub Actions* source in step 1 won't be available and the deploy can't run.
+> - **Fail-safe.** Until step 1 is done the deploy job simply fails at "Configure Pages" and
+>   nothing is published — there is no accidental exposure in the meantime.
