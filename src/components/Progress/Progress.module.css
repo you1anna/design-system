@@ -1,0 +1,39 @@
+.root {
+  display: grid;
+  gap: var(--ds-space-sm);
+  color: var(--ds-color-text-primary);
+  font-family: var(--ds-font-family-sans);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ds-space-sm);
+}
+
+.label {
+  color: var(--ds-color-text-primary);
+  font-size: var(--ds-font-size-sm);
+  font-weight: var(--ds-font-weight-medium);
+}
+
+.value {
+  color: var(--ds-color-text-secondary);
+  font-size: var(--ds-font-size-sm);
+  font-weight: var(--ds-font-weight-medium);
+}
+
+.track {
+  width: 100%;
+  height: var(--ds-space-sm);
+  overflow: hidden;
+  border-radius: var(--ds-radius-full);
+  background-color: var(--ds-color-bg-surface-hover);
+}
+
+.bar {
+  height: 100%;
+  border-radius: var(--ds-radius-full);
+  background-color: var(--ds-color-action-primary);
+}

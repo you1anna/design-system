@@ -11,6 +11,7 @@ const exportedComponentNames = [
   'Dialog',
   'Grid',
   'Input',
+  'Progress',
   'Radio',
   'Select',
   'Stack',
