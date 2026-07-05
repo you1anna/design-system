@@ -5,6 +5,7 @@ const exportedComponentNames = [
   'Alert',
   'Badge',
   'Button',
+  'Calendar',
   'Card',
   'Checkbox',
   'Dialog',

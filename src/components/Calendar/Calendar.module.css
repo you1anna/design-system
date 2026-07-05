@@ -1,0 +1,88 @@
+.calendar {
+  display: grid;
+  gap: var(--ds-space-md);
+  color: var(--ds-color-text-primary);
+  font-family: var(--ds-font-family-sans);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.month {
+  margin: 0;
+  font-size: var(--ds-font-size-lg);
+  font-weight: var(--ds-font-weight-bold);
+  line-height: var(--ds-line-height-tight);
+}
+
+.weekdays,
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: var(--ds-space-xs);
+}
+
+.weekday {
+  color: var(--ds-color-text-secondary);
+  font-size: var(--ds-font-size-xs);
+  font-weight: var(--ds-font-weight-bold);
+  text-align: center;
+}
+
+.day {
+  min-height: 72px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-xs);
+  padding: var(--ds-space-sm);
+  border: 1px solid var(--ds-color-border-default);
+  border-radius: var(--ds-radius-md);
+  background-color: var(--ds-color-bg-page);
+  color: var(--ds-color-text-primary);
+  text-decoration: none;
+}
+
+.dayLabel {
+  font-size: var(--ds-font-size-sm);
+  font-weight: var(--ds-font-weight-bold);
+  line-height: var(--ds-line-height-tight);
+}
+
+.eyebrow {
+  color: var(--ds-color-text-secondary);
+  font-size: var(--ds-font-size-xs);
+  font-weight: var(--ds-font-weight-medium);
+  line-height: var(--ds-line-height-tight);
+}
+
+.neutral {
+  background-color: var(--ds-color-bg-page);
+}
+
+.success {
+  border-color: var(--ds-color-success);
+  background-color: var(--ds-color-success-bg);
+}
+
+.warning {
+  border-color: var(--ds-color-warning);
+  background-color: var(--ds-color-warning-bg);
+}
+
+.danger {
+  border-color: var(--ds-color-danger);
+  background-color: var(--ds-color-danger-bg);
+}
+
+.muted {
+  color: var(--ds-color-text-secondary);
+  background-color: var(--ds-color-bg-surface);
+}
+
+.selected {
+  outline: 2px solid var(--ds-color-action-primary);
+  outline-offset: 2px;
+}
