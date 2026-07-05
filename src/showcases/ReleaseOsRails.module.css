@@ -1,0 +1,28 @@
+.surface {
+  max-width: 1120px;
+  display: grid;
+  gap: var(--ds-space-xl);
+  padding: var(--ds-space-xl);
+  background-color: var(--ds-color-bg-surface);
+  color: var(--ds-color-text-primary);
+  font-family: var(--ds-font-family-sans);
+}
+
+.heading {
+  margin: 0;
+  color: var(--ds-color-text-primary);
+  font-size: var(--ds-font-size-lg);
+  font-weight: var(--ds-font-weight-bold);
+  line-height: var(--ds-line-height-tight);
+}
+
+.copy {
+  margin: 0;
+  color: var(--ds-color-text-secondary);
+  font-size: var(--ds-font-size-sm);
+  line-height: var(--ds-line-height-normal);
+}
+
+.summaryGrid {
+  align-items: stretch;
+}
