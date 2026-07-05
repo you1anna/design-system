@@ -4,9 +4,11 @@ A standalone React + TypeScript component library built on CSS-variable design t
 with Storybook, Vitest, and `tsup` for bundling. Intended as a reusable UI foundation for
 future web UIs.
 
-> **Status: PARKED (2026-07-04).** The foundation is complete and all quality gates pass,
-> but the package has one outstanding blocker before it is usable by a consumer — see
-> [Known gaps](#known-gaps--resume-here). Pick up from that section.
+> **Status: RAILS HARDENED (2026-07-05).** Phase 1 of Producer Release OS is complete: the
+> public barrel exports all components, a regression guard locks the public API, and the
+> Release OS rails showcase composes the package surface. All quality gates pass. The one
+> remaining Phase 1 item is generating the Figma design library (see
+> [Known gaps](#known-gaps--resume-here)); the package itself is consumer-ready.
 
 ## Stack
 
@@ -49,18 +51,25 @@ with component + CSS module + tests + stories + a local barrel `index.ts`:
 
 ## Known gaps — resume here
 
-1. **🔴 Blocker: the package entry doesn't export the components.** `src/index.ts` only
-   re-exports `cx` and the tokens, so the built package ships hollow — `import { Button }
-   from 'design-system'` resolves to `undefined`. Each component has a correct local
-   `index.ts`; they were just never wired into the top-level barrel. **Fix:** add
-   `export * from './components/<Name>'` for all 12 components in `src/index.ts`.
-2. **🟡 Add a regression guard.** No test asserts the public API, which is why the missing
-   barrel stayed invisible (all checks green throughout). Add a test that imports the
-   package entry and asserts each component is defined, so this can't recur.
-3. **🟡 Leftover Storybook boilerplate.** `src/stories/` still holds the default template
-   (`Button.tsx`, `Header.tsx`, `Page.tsx` + assets) — unrelated to the real components.
-   Safe to delete.
-4. **No git remote yet.** This repo is local-only; publish to a remote when ready.
+Phase 1 rails hardening is done. The blockers that used to live here are all resolved:
+
+- ✅ **Public barrel exports every component.** `src/index.ts` now re-exports all 15
+  components; `import { Button } from 'design-system'` resolves correctly.
+- ✅ **Public API regression guard.** `src/public-api.test.ts` imports the package entry
+  and asserts each component is defined, so a hollow barrel can't recur.
+- ✅ **Storybook boilerplate removed.** The default template under `src/stories/` is gone.
+- ✅ **Git remote exists.** Published to `you1anna/design-system`.
+
+Remaining before Phase 1 is fully closed:
+
+1. **Generate the Figma design library.** Scope is locked in
+   [`docs/figma-library-scope.md`](docs/figma-library-scope.md) from the code tokens; run
+   the `figma-generate-library` workflow to produce the actual Figma file, then record its
+   URL here. (Held as a Robin checkpoint — it's an outward-facing action.)
+2. **Deploy the live Storybook demo.** The GitHub Pages workflow exists; enable Pages and
+   record the URL under [Storybook demo](#storybook-demo).
+
+Next up is **Phase 2**: the thin local-first Producer Release OS SPA consuming these rails.
 
 Design docs live in `docs/superpowers/specs/` and `docs/superpowers/plans/`.
 
