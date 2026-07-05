@@ -4,6 +4,20 @@ Date: 2026-07-04
 Source repo: /Users/macbookair/Projects/design-system
 Purpose: Producer Release OS Phase 1 design library generated from code tokens.
 
+## Generated Library (2026-07-05)
+
+**File:** https://www.figma.com/design/J4Pl2gT1lRaNOVLHRWc4xl (Robin's drafts, "Producer Release OS — Design Library")
+
+Built via Figma MCP from this scope doc: 5 collections, 96 variables (56 primitives hidden,
+40 semantics aliased + role-scoped + `var(--ds-*)` Web code syntax), 7 Inter text styles, all
+15 components with variant sets matching the code union types (Button 12, Badge 4, Alert 4,
+Checkbox/Radio 2 each, Table 2, rest single). Binding audit: 0 unbound solid paints in components.
+
+Starter-plan constraints (recorded, both reversible on upgrade): 3-page limit → sections-within-pages
+(`Cover & Foundations` / `Components — Atoms` / `Components — Composites`); team-library publishing and
+Code Connect unavailable — the file is the canonical visual/token reference, not a subscribable library.
+Inter proxies the `-apple-system` stack in text styles; the `family/sans` variable carries the real CSS value.
+
 ## Token Source Of Truth
 
 - CSS variables: src/styles/tokens.css
