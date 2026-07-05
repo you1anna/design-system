@@ -63,3 +63,15 @@ with component + CSS module + tests + stories + a local barrel `index.ts`:
 4. **No git remote yet.** This repo is local-only; publish to a remote when ready.
 
 Design docs live in `docs/superpowers/specs/` and `docs/superpowers/plans/`.
+
+## Storybook demo
+
+Build the demo locally:
+
+```bash
+npm run storybook:build
+```
+
+The static output is `storybook-static/`.
+
+When this repo has a GitHub remote and Pages is configured to use GitHub Actions, `.github/workflows/storybook-pages.yml` publishes Storybook from `main`. The workflow runs unit tests, builds the package, builds Storybook, and deploys the generated static site.
