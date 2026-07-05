@@ -13,6 +13,7 @@ const exportedComponentNames = [
   'Radio',
   'Select',
   'Stack',
+  'Table',
   'Tabs',
 ] as const;
 
