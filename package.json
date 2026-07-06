@@ -1,10 +1,20 @@
 {
-  "name": "design-system",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@you1anna/design-system",
+  "version": "0.2.0",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/you1anna/design-system.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -17,6 +27,8 @@
   ],
   "scripts": {
     "build": "tsup",
+    "check:css": "node scripts/check-css.mjs",
+    "prepublishOnly": "npm run build",
     "test": "vitest run --project=unit",
     "test:watch": "vitest --project=unit",
     "test:storybook": "vitest run --project=storybook",

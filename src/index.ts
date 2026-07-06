@@ -1,3 +1,9 @@
+// Ship the design tokens + global resets with the package. global.css @imports
+// tokens.css (the --ds-* custom properties); importing it here folds both into the
+// built dist/index.css ahead of the per-component module rules, so a single
+// `import '@you1anna/design-system/styles.css'` gives consumers defined tokens.
+import './styles/global.css';
+
 export { cx } from './utils/cx';
 export type { ClassValue } from './utils/cx';
 export * from './tokens';

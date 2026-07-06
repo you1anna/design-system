@@ -1,0 +1,36 @@
+name: Publish package
+
+# Publishes @you1anna/design-system to GitHub Packages when a GitHub Release is
+# published. Tag the release to match package.json version (e.g. v0.2.0).
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://npm.pkg.github.com
+          scope: '@you1anna'
+
+      - run: npm ci
+
+      - name: Gate
+        run: |
+          npm run lint
+          npm run typecheck
+          npm test
+          npm run build
+          npm run check:css
+
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

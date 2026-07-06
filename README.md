@@ -10,6 +10,41 @@ future web UIs.
 > remaining Phase 1 item is generating the Figma design library (see
 > [Known gaps](#known-gaps--resume-here)); the package itself is consumer-ready.
 
+## Install / Consume
+
+Published to **GitHub Packages** as `@you1anna/design-system`. Consumers install it by version —
+not via a `file:`/relative link — so React resolves once and versions are pinned by the lockfile.
+
+1. Point the scope at GitHub Packages (add to the **consumer** repo's `.npmrc`):
+
+   ```
+   @you1anna:registry=https://npm.pkg.github.com
+   //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
+   ```
+
+   Provide `NODE_AUTH_TOKEN` via the environment (a GitHub PAT/`GITHUB_TOKEN` with `read:packages`).
+   Never commit the token.
+
+2. Install and use:
+
+   ```bash
+   npm i @you1anna/design-system
+   ```
+
+   ```tsx
+   import { Button } from '@you1anna/design-system';
+   import '@you1anna/design-system/styles.css'; // ships the --ds-* tokens + component styles
+
+   export const Example = () => <Button>Ship it</Button>;
+   ```
+
+- **React is a peer dependency** (`react`/`react-dom` `^18.3.1`) — the consumer provides it.
+- `styles.css` is the complete stylesheet: design tokens (`--ds-*`) **and** component rules. Import
+  it once at the app entry. The `check:css` build guard fails the release if tokens are ever dropped.
+
+**Publishing** (maintainer): bump `version`, then publish a GitHub Release tagged `vX.Y.Z` — the
+`publish.yml` workflow runs the gate and `npm publish`es to GitHub Packages.
+
 ## Stack
 
 - React 18 + TypeScript
@@ -53,8 +88,8 @@ with component + CSS module + tests + stories + a local barrel `index.ts`:
 
 Phase 1 rails hardening is done. The blockers that used to live here are all resolved:
 
-- ✅ **Public barrel exports every component.** `src/index.ts` now re-exports all 15
-  components; `import { Button } from 'design-system'` resolves correctly.
+- ✅ **Public barrel exports every component.** `src/index.ts` re-exports all components;
+  `import { Button } from '@you1anna/design-system'` resolves correctly.
 - ✅ **Public API regression guard.** `src/public-api.test.ts` imports the package entry
   and asserts each component is defined, so a hollow barrel can't recur.
 - ✅ **Storybook boilerplate removed.** The default template under `src/stories/` is gone.

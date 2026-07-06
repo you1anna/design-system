@@ -25,6 +25,13 @@ export default tseslint.config(
       'react/prop-types': 'off',
     },
   },
+  {
+    // Node scripts (build/CI helpers) — allow Node globals.
+    files: ['scripts/**/*.{js,mjs}'],
+    languageOptions: {
+      globals: { console: 'readonly', process: 'readonly' },
+    },
+  },
   prettier,
   storybook.configs["flat/recommended"]
 );
