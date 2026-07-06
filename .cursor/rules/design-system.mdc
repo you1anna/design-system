@@ -1,0 +1,20 @@
+---
+description: design-system rules
+globs:
+  - "**/*"
+alwaysApply: true
+---
+
+# design-system Rules For Cursor
+
+Thin adapter: read `AGENTS.md` in this repo and the shared contract at
+`~/Projects/command-center/tooling/agent-operating-contract.md` rather than inventing
+tool-specific behaviour.
+
+Key points:
+
+- Bootstrap first on fresh clones: `npm run bootstrap`.
+- Gate before commit: `npm run lint`, `npm run typecheck`, `npm test`, `npm run build`,
+  `npm run check:css`.
+- Public API is the `src/index.ts` barrel; React stays a peer dependency.
+- Publishing/releases are Robin-gated — ask first.

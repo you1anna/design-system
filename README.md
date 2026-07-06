@@ -78,20 +78,22 @@ npm run storybook        # dev server on :6006
 
 ## What's built
 
-Design tokens (primitive + semantic), a `cx()` classname helper, and **12 components**, each
-with component + CSS module + tests + stories + a local barrel `index.ts`:
+Design tokens (primitive + semantic), a `cx()` classname helper, and **15 components**
+(the `src/index.ts` barrel is the definitive list), each with component + CSS module +
+tests + stories + a local barrel `index.ts`:
 
-`Alert` · `Badge` · `Button` · `Card` · `Checkbox` · `Dialog` · `Grid` · `Input` ·
-`Radio` · `Select` · `Stack` · `Tabs`
+`Alert` · `Badge` · `Button` · `Calendar` · `Card` · `Checkbox` · `Dialog` · `Grid` ·
+`Input` · `Progress` · `Radio` · `Select` · `Stack` · `Table` · `Tabs`
 
 (Dialog/Tabs/Select/Radio/Checkbox are built on Radix primitives.)
 
-## Verified state at parking (2026-07-04)
+## Verified state (2026-07-06)
 
 - `typecheck` — passes (exit 0)
-- `npm test` — **36 tests pass** across 14 files
+- `npm test` — **58 tests pass** across 18 files
 - `lint` — clean
 - `build` — succeeds (`dist/index.{js,d.ts}`)
+- `check:css` — `dist/index.css` ships tokens + component rules
 - Git history — clean, linear, one component per commit
 
 ## Known gaps — resume here
