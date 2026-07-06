@@ -8,12 +8,23 @@ Guidance for AI agents (Codex, Claude, Cursor, …) working in this repo.
 - `docs/ARCHITECTURE.md` — how the package is built, the token pipeline, and the CSS ship guarantee.
 - `decisions/` — durable choices; do not re-litigate (packaging → GitHub Packages).
 
+## Bootstrap first (fresh clones / web sessions)
+
+Remote and web sessions clone this repo without `node_modules`; the gate then fails
+cryptically. Always start with:
+
+```bash
+npm run bootstrap   # runs npm ci only if node_modules is missing; fast no-op otherwise
+```
+
+(`npm run lint` also pre-checks for `node_modules` and points you here if it's absent.)
+
 ## Verify changes (the gate)
 
 Run the full gate before committing; CI (`publish.yml`) runs the same:
 
 ```bash
-npm ci
+npm run bootstrap
 npm run lint
 npm run typecheck
 npm test            # vitest, unit project

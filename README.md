@@ -54,10 +54,20 @@ not via a `file:`/relative link — so React resolves once and versions are pinn
 - Vitest + Testing Library for unit tests
 - `tsup` for ESM + `.d.ts` bundling
 
+## Developing this repo? Bootstrap first
+
+Fresh clones (especially remote/web agent sessions) arrive without `node_modules`, and the
+quality gate fails cryptically without it (`npm run lint` → `ERR_MODULE_NOT_FOUND:
+eslint-plugin-storybook`). Run the bootstrap before anything else:
+
+```bash
+npm run bootstrap   # npm ci if node_modules is missing; no-op when already installed
+```
+
 ## Commands
 
 ```bash
-npm install
+npm run bootstrap        # npm ci on a fresh clone (idempotent)
 npm run typecheck        # tsc --noEmit
 npm test                 # vitest run --project=unit
 npm run test:storybook   # vitest run --project=storybook

@@ -26,12 +26,14 @@
     "dist"
   ],
   "scripts": {
+    "bootstrap": "bash scripts/bootstrap.sh",
     "build": "tsup",
     "check:css": "node scripts/check-css.mjs",
     "prepublishOnly": "npm run build",
     "test": "vitest run --project=unit",
     "test:watch": "vitest --project=unit",
     "test:storybook": "vitest run --project=storybook",
+    "prelint": "node scripts/ensure-deps.mjs",
     "lint": "eslint .",
     "format": "prettier --write .",
     "typecheck": "tsc --noEmit",
