@@ -1,5 +1,7 @@
 # Design System Foundation Implementation Plan
 
+> Retirement update, 15 October 2026: command-center references describe the earlier model. Hub contracts, registration steps, journal integration and central lifecycle ownership are superseded. Follow this repository's current AGENTS.md and README.md; retain this document as dated design evidence.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Build a standalone React component library — design tokens plus a core set of 12 components — as an extensible foundation for future web UI, ready to be synced to claude.ai/design via the `design-sync` skill.

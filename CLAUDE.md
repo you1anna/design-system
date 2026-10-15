@@ -14,4 +14,4 @@ See `AGENTS.md` for the full agent contract. Quick orientation for Claude Code:
 - **React** stays a peer dependency (kept external in tsup) — moving it to `dependencies` brings
   back duplicate-React for consumers.
 - **Publishing** (`npm publish` / release) is outward-facing — flag before running.
-- Hub-level context and cross-repo decisions live in the `command-center` repo.
+- This repository owns its plans, status and decisions. Follow `AGENTS.md`; no hub close-out is required.

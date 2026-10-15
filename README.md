@@ -1,5 +1,7 @@
 # design-system
 
+> Workspace update, 15 October 2026: command-center is retired. This repository owns its guidance, plans, status and decisions; historical hub references are provenance and do not require hub lookup or session fold-back. Start at `AGENTS.md`.
+
 A standalone React + TypeScript component library built on CSS-variable design tokens,
 with Storybook, Vitest, and `tsup` for bundling. Intended as a reusable UI foundation for
 future web UIs.

@@ -7,9 +7,8 @@ alwaysApply: true
 
 # design-system Rules For Cursor
 
-Thin adapter: read `AGENTS.md` in this repo and the shared contract at
-`~/Projects/command-center/tooling/agent-operating-contract.md` rather than inventing
-tool-specific behaviour.
+Read `AGENTS.md` in this repository. Its instructions, plans and decisions are
+authoritative and work without a central hub or sibling checkout.
 
 Key points:
 

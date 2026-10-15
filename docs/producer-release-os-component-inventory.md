@@ -1,5 +1,7 @@
 # Producer Release OS Component Inventory
 
+> Retirement update, 15 October 2026: command-center references describe the earlier model. Hub contracts, registration steps, journal integration and central lifecycle ownership are superseded. Follow this repository's current AGENTS.md and README.md; retain this document as dated design evidence.
+
 Date: 2026-07-04
 Source spec: /Users/macbookair/Projects/command-center/docs/superpowers/specs/2026-07-04-producer-release-os-design.md
 Phase: 1 - harden the rails, app-driven
